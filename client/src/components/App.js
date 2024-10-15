@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Gallery from './Gallery';
 import InfoCards from './InfoCards';
+import PatientDashboard from './PatientDashboard';
 
 const images = [
   { url: 'https://img.freepik.com/free-photo/african-american-doctor-patient-doing-consultation_482257-20161.jpg?semt=ais_hybrid', alt: 'xray' },
@@ -10,10 +12,11 @@ const images = [
 
 function App() {
   return (
-    <div className='App'>
-      <Gallery images={images} />
-      <InfoCards />
-    </div>
+      <div className="App">
+        <Gallery images={images} />
+        <InfoCards />
+        <PatientDashboard />
+      </div>
   );
 }
 

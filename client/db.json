@@ -1,0 +1,69 @@
+{
+    "patients": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "age": 30,
+        "medicalHistory": "No known allergies, previous surgery in 2020."
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "age": 45,
+        "medicalHistory": "Allergic to penicillin."
+      }
+    ],
+    "departments": [
+      {
+        "id": 1,
+        "name": "Cardiology",
+        "doctors": [
+          {
+            "id": 1,
+            "name": "Dr. Alice Johnson",
+            "available": true
+          },
+          {
+            "id": 2,
+            "name": "Dr. Bob Williams",
+            "available": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Neurology",
+        "doctors": [
+          {
+            "id": 3,
+            "name": "Dr. Carol Brown",
+            "available": true
+          },
+          {
+            "id": 4,
+            "name": "Dr. David Wilson",
+            "available": true
+          }
+        ]
+      }
+    ],
+    "appointments": [
+      {
+        "id": 1,
+        "patientId": 1,
+        "doctorId": 1,
+        "date": "2024-10-20",
+        "time": "10:00",
+        "status": "confirmed"
+      },
+      {
+        "id": 2,
+        "patientId": 2,
+        "doctorId": 3,
+        "date": "2024-10-22",
+        "time": "14:30",
+        "status": "pending"
+      }
+    ]
+  }
+  

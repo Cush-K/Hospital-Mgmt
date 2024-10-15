@@ -1,15 +1,17 @@
+// index.js
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-import routes from './components/Routes';
+import ReactDOM from 'react-dom/client'; // Import from 'react-dom/client' for React 18
+import App from './components/App';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css'; // Importing global styles
 
-const router = createBrowserRouter(routes)
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>
 );
-
