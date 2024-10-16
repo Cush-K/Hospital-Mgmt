@@ -11,42 +11,8 @@
         "name": "Jane Smith",
         "age": 45,
         "medicalHistory": "Allergic to penicillin."
-      }
-    ],
-    "departments": [
-      {
-        "id": 1,
-        "name": "Cardiology",
-        "doctors": [
-          {
-            "id": 1,
-            "name": "Dr. Alice Johnson",
-            "available": true
-          },
-          {
-            "id": 2,
-            "name": "Dr. Bob Williams",
-            "available": false
-          }
-        ]
       },
-      {
-        "id": 2,
-        "name": "Neurology",
-        "doctors": [
-          {
-            "id": 3,
-            "name": "Dr. Carol Brown",
-            "available": true
-          },
-          {
-            "id": 4,
-            "name": "Dr. David Wilson",
-            "available": true
-          }
-        ]
-      }
-    ],
+     {
     "appointments": [
       {
         "id": 1,
@@ -66,4 +32,6 @@
       }
     ]
   }
+]
+}
   
