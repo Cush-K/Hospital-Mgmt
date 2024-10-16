@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PatientDetails from './PatientDetails';
 import BookAppointment from './BookAppointment';
-import Departments from './Departments';
+import Departments from './Department';
 import './PatientDashboard.css';  
 
 

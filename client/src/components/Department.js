@@ -1,7 +1,7 @@
 // Departments.js
 import React, { useState, useEffect } from 'react';
 
-const Departments = () => {
+const Department = () => {
   const [departments, setDepartments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -46,4 +46,4 @@ const Departments = () => {
   );
 };
 
-export default Departments;
+export default Department;
