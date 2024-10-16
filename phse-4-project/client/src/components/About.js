@@ -1,6 +1,6 @@
 import React from 'react';
 
-/*remember to import login and logout*/
+/*remember to import login and logout from @Peter*/
 function About(){
     return(
         <section className="about-section">

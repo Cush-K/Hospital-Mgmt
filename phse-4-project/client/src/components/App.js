@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
-import Contact from './Contact';  // Import Contact component
+import Contact from './Contact';  
+import footer from './Footer';
+import Navbar from './Navbar';
+
 
 function App() {
   return (
@@ -10,7 +13,7 @@ function App() {
       <nav>
         <Link to="/">Home</Link> | {" "}
         <Link to="/about">About</Link> | {" "}
-        <Link to="/contact">Contact</Link> {/* Add Contact link */}
+        <Link to="/contact">Contact</Link> 
       </nav>
       <div className="App">
         <Routes>
