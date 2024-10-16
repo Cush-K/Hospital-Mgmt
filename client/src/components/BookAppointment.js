@@ -1,98 +1,77 @@
-// BookAppointment.js
-import React, { useState } from 'react';
+import React from 'react';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import './BookAppointment.css';
 
 const BookAppointment = () => {
-  const [patientName, setPatientName] = useState('');
-  const [doctorId, setDoctorId] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Simulate booking appointment
-    const appointmentData = {
-      patientName,
-      doctorId,
-      date,
-      time,
-    };
-
-    // Replace with your API endpoint
-    const response = await fetch('http://localhost:5000/appointments', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(appointmentData),
+    const validationSchema = yup.object().shape({
+        date: yup.string().required('Date is required'),
+        time: yup.string().required('Time is required'),
+        doctor: yup.string().required('Doctor selection is required'),
     });
 
-    if (response.ok) {
-      setMessage('Appointment booked successfully!');
-      // Reset form fields
-      setPatientName('');
-      setDoctorId('');
-      setDate('');
-      setTime('');
-    } else {
-      setMessage('Failed to book appointment. Please try again.');
-    }
-  };
+    const formik = useFormik({
+        initialValues: {
+            date: '',
+            time: '',
+            doctor: '',
+        },
+        validationSchema,
+        onSubmit: async (values, { resetForm }) => {
+            console.log('Appointment Details:', values);
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            alert('Appointment booked successfully!');
+            resetForm();
+        },
+    });
 
-  return (
-    <div className="book-appointment">
-      <h2>Book Appointment</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="patientName">Patient Name:</label>
-          <input
-            type="text"
-            id="patientName"
-            value={patientName}
-            onChange={(e) => setPatientName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="doctorId">Select Doctor:</label>
-          <select
-            id="doctorId"
-            value={doctorId}
-            onChange={(e) => setDoctorId(e.target.value)}
-            required
-          >
-            <option value="">Select a doctor</option>
-            {/* Replace with actual doctors */}
-            <option value="1">Doctor 1</option>
-            <option value="2">Doctor 2</option>
-            <option value="3">Doctor 3</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="date">Date:</label>
-          <input
-            type="date"
-            id="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="time">Time:</label>
-          <input
-            type="time"
-            id="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Book Appointment</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
-  );
+    return (
+        <form onSubmit={formik.handleSubmit} className="appointment-form">
+            <div className="form-field">
+                <label htmlFor="date">Date:</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.date}
+                />
+                {formik.touched.date && formik.errors.date && <p className="errors">{formik.errors.date}</p>}
+            </div>
+
+            <div className="form-field">
+                <label htmlFor="time">Time:</label>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.time}
+                />
+                {formik.touched.time && formik.errors.time && <p className="errors">{formik.errors.time}</p>}
+            </div>
+
+            <div className="form-field">
+                <label htmlFor="doctor">Select Doctor:</label>
+                <select
+                    id="doctor"
+                    name="doctor"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.doctor}
+                >
+                    <option value="" label="Select doctor" />
+                    <option value="Dr. Smith">Dr. Smith</option>
+                    <option value="Dr. Jones">Dr. Jones</option>
+                </select>
+                {formik.touched.doctor && formik.errors.doctor && <p className="errors">{formik.errors.doctor}</p>}
+            </div>
+
+            <button type="submit" className="submit-button">Submit Appointment</button>
+        </form>
+    );
 };
 
 export default BookAppointment;
