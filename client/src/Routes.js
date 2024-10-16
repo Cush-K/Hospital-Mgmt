@@ -5,6 +5,7 @@ import App from "./components/App";
 import Signup from "./components/Signup";
 import PatientDashboard from "./components/PatientDashboard";
 
+
 const routes = [
     {
         path: '/',
@@ -17,7 +18,8 @@ const routes = [
     {
         path: '/patient-dashboard',
         element: <PatientDashboard />
-    },
+    }
+    
 ];
 
 const router = createBrowserRouter(routes);

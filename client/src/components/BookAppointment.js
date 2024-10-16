@@ -7,21 +7,30 @@ const BookAppointment = () => {
     const validationSchema = yup.object().shape({
         date: yup.string().required('Date is required'),
         time: yup.string().required('Time is required'),
-        doctor: yup.string().required('Doctor selection is required'),
     });
 
     const formik = useFormik({
         initialValues: {
             date: '',
             time: '',
-            doctor: '',
         },
         validationSchema,
         onSubmit: async (values, { resetForm }) => {
-            console.log('Appointment Details:', values);
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-            alert('Appointment booked successfully!');
-            resetForm();
+                // POST request to send the appointment data to the backend
+                const response =  fetch('http://localhost:3000/appointments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(values), // Send form values as JSON
+                });
+
+                if (response.ok) {
+                    alert('Appointment booked successfully!');
+                    resetForm(); // Reset the form after successful submission
+                } else {
+                    alert('Failed to book appointment. Please try again.');
+                }
         },
     });
 
@@ -51,22 +60,6 @@ const BookAppointment = () => {
                     value={formik.values.time}
                 />
                 {formik.touched.time && formik.errors.time && <p className="errors">{formik.errors.time}</p>}
-            </div>
-
-            <div className="form-field">
-                <label htmlFor="doctor">Select Doctor:</label>
-                <select
-                    id="doctor"
-                    name="doctor"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.doctor}
-                >
-                    <option value="" label="Select doctor" />
-                    <option value="Dr. Smith">Dr. Smith</option>
-                    <option value="Dr. Jones">Dr. Jones</option>
-                </select>
-                {formik.touched.doctor && formik.errors.doctor && <p className="errors">{formik.errors.doctor}</p>}
             </div>
 
             <button type="submit" className="submit-button">Submit Appointment</button>
