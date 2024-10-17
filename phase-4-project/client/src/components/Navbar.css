@@ -1,0 +1,52 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #343a40; /* Dark background for the navbar */
+    color: white; /* Text color */
+    padding: 15px 20px; /* Padding for spacing */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+}
+
+.nav-links {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Flexbox layout for links */
+}
+
+.nav-links li {
+    margin: 0 20px; /* Space between links */
+}
+
+.nav-links a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s; /* Transition effect */
+}
+
+.nav-links a:hover {
+    color: #ffdd57; /* Change color on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; /* Stack links vertically on smaller screens */
+        background-color: #343a40; /* Background color for mobile view */
+        position: absolute; /* Position absolute for dropdown */
+        top: 60px; /* Position below navbar */
+        left: 0;
+        right: 0;
+        display: none; /* Hide by default */
+    }
+
+    .navbar:hover .nav-links {
+        display: flex; /* Show links on hover */
+    }
+}

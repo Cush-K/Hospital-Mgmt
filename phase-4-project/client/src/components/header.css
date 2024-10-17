@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366;  /* Dark blue */
+    padding: 15px;
+    color: white;
+  }
+  
+  .company-name h2 {
+    margin: 0;
+  }
+  
+  .header-buttons .btn {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #007BFF;  /* Medium blue */
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .header-buttons .btn:hover {
+    background-color: #0056b3;  /* Darker blue */
+  }
+  
