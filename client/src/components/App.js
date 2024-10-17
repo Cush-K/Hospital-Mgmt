@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Gallery from './Gallery';
 import InfoCards from './InfoCards';
+import Navbar from './Navbar';
 
 const images = [
   { url: 'https://img.freepik.com/free-photo/african-american-doctor-patient-doing-consultation_482257-20161.jpg?semt=ais_hybrid', alt: 'xray' },
@@ -11,6 +12,7 @@ const images = [
 function App() {
   return (
     <div className='App'>
+      <Navbar/>
       <Gallery images={images} />
       <InfoCards />
     </div>

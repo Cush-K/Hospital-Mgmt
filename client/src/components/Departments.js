@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
+
 const Departments = () => {
   const departments = [
     { id: 16, name: 'Emergency', imageUrl: '/images/emergency.jpg' },
@@ -22,9 +23,10 @@ const Departments = () => {
     { id: 9, name: 'Psychiatry', imageUrl: '/images/psychiatry.jpg' }
   ];
 
+
   return (
     <div className="departments-page">
-      <Header/>
+      <Header />
       <h2>Hospital Departments</h2>
       <div className="departments-grid">
         {departments.map(department => (
@@ -37,9 +39,8 @@ const Departments = () => {
             {department.name === 'Emergency' ? (
               <p>For urgent cases, visit our Emergency Department immediately.</p>
             ) : (
-              <Link to={`/book-appointment/${department.id}`} className="book-appointment">
-                Book Appointment
-              </Link>
+              // Removed Book Appointment link
+              <p>Learn more about {department.name} services.</p>
             )}
           </div>
         ))}
@@ -47,5 +48,6 @@ const Departments = () => {
     </div>
   );
 };
+
 
 export default Departments;
