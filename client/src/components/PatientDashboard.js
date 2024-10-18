@@ -11,8 +11,6 @@ const PatientDashboard = () => {
             <nav className="dashboard-nav">
                 <PatientDetails patientId={patientId} />
             </nav>
-           
-            {/* Render Departments outside of the <nav> */}
             <Departments />
         </div>
     );
