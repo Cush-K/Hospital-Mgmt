@@ -8,7 +8,7 @@ const PatientDetails = ({ patientId }) => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:3000/patients/${patientId}`)
+    fetch(`http://localhost:4001/patients/${patientId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

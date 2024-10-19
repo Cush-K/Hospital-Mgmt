@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
 
 
 const Departments = () => {
@@ -26,7 +25,6 @@ const Departments = () => {
 
   return (
     <div className="departments-page">
-      <Header />
       <h2>Hospital Departments</h2>
       <div className="departments-grid">
         {departments.map(department => (

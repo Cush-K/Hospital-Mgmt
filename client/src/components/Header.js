@@ -16,11 +16,11 @@ const Header = () => {
           <li><Link to="/contact">Contact Us</Link></li>
         </ul>
       </nav>
-      <div className="auth-actions">
+      {/* <div className="auth-actions">
         <button><Link to="/login">Login</Link></button>
         <button><Link to="/logout">Logout</Link></button>
         <button><Link to="/book-appointment">Book Appointment</Link></button>
-      </div>
+      </div> */}
     </header>
   );
 };

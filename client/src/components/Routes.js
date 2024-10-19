@@ -1,6 +1,7 @@
 import React from "react";
 import App from "./App";
 import Signup from "./Signup";
+import About from "./About";
 import Login from "./Login";
 import Departments from "./Departments";
 import Doctors from "./Doctors";
@@ -13,6 +14,10 @@ const routes = [
     {
         path: '/',
         element: <App />
+    },
+    {
+        path: '/about',
+        element: <About/>
     },
     {
         path: '/signup',
